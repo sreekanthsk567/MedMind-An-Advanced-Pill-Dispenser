@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    android:background="#121212"
+    tools:context=".LanguagePickerActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to MedMind"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please select your language\nकृपया अपनी भाषा चुनें\nദയവായി നിങ്ങളുടെ ഭാഷ തിരഞ്ഞെടുക്കുക\nकृपया आपली भाषा निवडा"
+        android:textColor="#AEAEB2"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"/>
+
+    <Button
+        android:id="@+id/btnEnglish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="English"
+        android:backgroundTint="#007AFF"
+        android:layout_marginBottom="16dp"
+        android:padding="16dp"/>
+
+    <Button
+        android:id="@+id/btnHindi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="हिंदी (Hindi)"
+        android:backgroundTint="#FF9500"
+        android:layout_marginBottom="16dp"
+        android:padding="16dp"/>
+    <Button
+        android:id="@+id/btnMalayalam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#34C759"
+        android:padding="16dp"
+        android:text="മലയാളം (Malayalam)" />
+    <Button
+        android:id="@+id/btnKannada"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="मराठी (Marathi)"
+        android:backgroundTint="#AF52DE"
+        android:padding="16dp"/>
+
+</LinearLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_marginBottom="4dp"
+    android:background="@drawable/rounded_dark_container">
+
+    <TextView
+        android:id="@+id/tvLogStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="[TAKEN]"
+        android:textStyle="bold"
+        android:textColor="#4CAF50"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tvLogDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Metformin @ 10:00 AM"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"/>
+</LinearLayout>
