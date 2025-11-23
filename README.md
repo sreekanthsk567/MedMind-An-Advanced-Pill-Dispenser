@@ -1,383 +1,319 @@
-**MEDMIND**
+# MedMind – AI-Powered Smart Pill Dispenser & Health Ecosystem
 
-**An Advanced Pill Dispenser**
+<img src="media/media/image51.jpg" width="220">
 
-**MedMind Login Screen**
+MedMind is an IoT-enabled medication management system designed to help elderly patients take their medicines on time while keeping caregivers and doctors in the loop. It combines a smart pill-dispensing hardware unit with an Android application that provides reminders, AI-powered coaching, vitals monitoring, and real-time alerts.
 
-![](media/media/image1.png){width="1.3249070428696412in"
-height="2.9442377515310585in"}
 
-Multi-Lingual Option
+#The Problem
 
-![](media/media/image2.png){width="1.627308617672791in"
-height="3.6162423447069116in"}
-![](media/media/image3.png){width="1.6334372265966755in"
-height="3.629861111111111in"}
-![](media/media/image4.png){width="1.6622342519685038in"
-height="3.6938527996500437in"}
+Medication non-adherence is one of the biggest hidden challenges in elderly care. Many older adults forget doses, double-dose by accident, or skip medicines entirely. Family members living away often have no way to track if their loved ones are following their medication schedule. Most existing solutions like pill boxes or alarms are passive—they cannot verify whether a pill was actually taken.
 
-Can login as an existing user, new users can register as patient,
-caregiver or doctor
+#The MedMind Solution
 
-![](media/media/image5.png){width="2.022965879265092in"
-height="4.495479002624672in"}
-![](media/media/image6.png){width="2.017716535433071in"
-height="4.483814523184602in"}
-![](media/media/image7.png){width="2.022965879265092in"
-height="4.495479002624672in"}
+MedMind creates a complete medication ecosystem:
 
-Patient UI with Multiple Languages
+1. **Smart Hardware Dispenser** that physically dispenses pills and verifies if the patient picked them up.
+2. **Patient Mobile App** providing reminders, schedules, health insights, and automatic inventory tracking.
+3. **Caregiver/Doctor Interface** for remote monitoring of adherence, vitals, and alerts.
+4. **AI Medical Companion** for supportive, non-medical conversational guidance.
 
-![](media/media/image8.jpg){width="3.710465879265092in"
-height="2.319040901137358in"}
+---
 
-Caregiver UI (Existing account linked to a patient)
+# Key Features
 
-![](media/media/image9.jpg){width="3.981299212598425in"
-height="2.4883114610673664in"}
+##Android App
+- Reliable pill reminders with both local alarms & cloud-triggered alerts.
+- AI Health Coach powered by Google Gemini for motivational suggestions.
+- Syncs vitals like heart rate, steps, and oxygen from WearOS/Samsung watches through Health Connect.
+- Emergency SOS that triggers a loud alarm on the caregiver’s phone.
+- Automatic pill count tracking based on hardware dispensing.
+- Multi-language support (English, Malayalam, Hindi).
 
-Doctor UI with multiple patients( Existing account)
+## Smart Hardware (ESP8266)
+- IR break-beam sensor checks if the pill was actually picked up.
+- If not picked up within 15 seconds, the system flags a missed dose.
+- Zig-zag servo motion prevents double dispensing or pill jams.
+- NTP-based time synchronization for accurate offline dispensing.
+- Speaker + display provide clear alerts at the device.
 
-**Emergency SOS feature**
+#Tech Stack
 
-![](media/media/image10.png){width="3.991715879265092in"
-height="1.7704002624671915in"}
+| Component | Technology | Purpose |
+|----------|------------|---------|
+| Mobile App | Kotlin (MVVM) | Patient/Caregiver/Doctor interfaces |
+| Backend | Firebase (Auth, Firestore, RTDB) | User management, logs, vitals |
+| Hardware | ESP8266 NodeMCU | Controls servos, sensors, alerts |
+| Sensors | Servo motors, IR sensor | Dispensing + verification |
+| AI Engine | Gemini API | AI medical companion |
+| Health Data | Google Health Connect | Sync vitals from wearables |
 
-In case of emergency, patient can press this button
 
-![](media/media/image11.png){width="4.345882545931759in"
-height="1.8349278215223097in"}
+#Getting Started
 
-![](media/media/image12.jpg){width="6.075721784776903in"
-height="3.797326115485564in"}
+## 1. Prerequisites
+Make sure you have:
 
-In caregiver/doctor phone it will play an emergency alarm( sound and
-visual alert as seen from the screenshot)
+- Android Studio (Koala or newer)
+- Arduino IDE
+- Firebase project with Auth, Firestore & Realtime DB enabled
+- Google Health Connect installed on the Android device
 
-**Linking to Smart Watch for Vitals Monitoring for doctor/caregiver**
 
-![](media/media/image13.png){width="3.2955008748906387in"
-height="1.7301377952755905in"}
 
-![](media/media/image14.png){width="2.369734251968504in"
-height="5.266076115485564in"}
-![](media/media/image15.png){width="2.444734251968504in"
-height="5.432742782152231in"}
+## 2. Hardware Setup
 
-Allow the permissions
+1. Go to the `hardware-code/` folder.
+2. Open the `.ino` file in Arduino IDE.
+3. Install required libraries:  
+   - Firebase ESP Client  
+   - ArduinoJson  
+   - NTPClient  
+4. Update credentials at the top of the code:
 
-![](media/media/image16.png){width="4.498523622047244in"
-height="2.370054680664917in"}
+```cpp
+#define WIFI_SSID "YOUR_WIFI"
+#define WIFI_PASSWORD "YOUR_PASSWORD"
+#define FIREBASE_DB_URL "YOUR_RTDB_URL"
+#define FIREBASE_DB_SECRET "YOUR_DATABASE_SECRET"
+#define PATIENT_USER_ID "UID_FROM_APP"
+````
 
-Caregiver/doctor can remotely monitor the vitals remotely using the tab
-below
+5. Upload the code to the NodeMCU.
 
-![](media/media/image17.png){width="3.690698818897638in"
-height="3.362636701662292in"}
+---
 
-![](media/media/image18.jpg){width="3.5003149606299213in"
-height="4.828576115485564in"}
+## 3. Android App Setup
 
-**MedMind Ecosystem**
+1. Clone the repo:
 
-There are three types of users patient, caregiver and doctor. The
-patient activity can be monitored by the doctor as well as the
-caregiver. The adherence history, vitals can be seen by caregiver/
-doctor in their app provided the patient id and caregiver/doctor id's
-are connected together. This provides the feature "chat with
-caregiver/doctor". Also the patients can request call request to the
-caregiver/doctor as well.
+```bash
+git clone https://github.com/YOUR_USERNAME/MedMind.git
+```
 
-![](media/media/image19.png){width="2.847481408573928in"
-height="1.5344761592300962in"}
+2. Open the `android-app/` folder in Android Studio.
+3. Add your Firebase `google-services.json` to:
 
-Patients can link caregiver/ doctor using this section in the app.
+```
+android-app/app/
+```
 
-![](media/media/image20.png){width="2.975923009623797in"
-height="3.4384273840769906in"}
+4. Add your Gemini API Key inside `AiCompanionActivity.kt`.
+5. Build and run on a physical device (Health Connect doesn’t work on standard emulators).
 
-Caregiver/doctor can link to patients to see the adherence history as
-well as for chatting using this section.
+---
 
-![](media/media/image21.png){width="4.752132545931759in"
-height="1.5356430446194225in"}
+#Hardware Wiring
 
-Patients can chat with caregiver using this button option as well as can
-request call as well
-
-![](media/media/image22.png){width="1.9363429571303588in"
-height="4.302985564304462in"}
-![](media/media/image23.jpg){width="4.418799212598425in"
-height="2.761748687664042in"}
-
-Patient Doctor/caregiver
-
-![](media/media/image24.png){width="6.5in"
-height="1.1555555555555554in"}
-
-Patient/caregiver/doctor can request call to one another
-
-![](media/media/image25.png){width="6.5in"
-height="1.4685181539807524in"}
-
-**AI Medical Companion**
-
-An AI powered Medical Companion that help the patients questions related
-to medical activities ( no medicinal advises are allowed to give as
-answer). The AI acts as a companion to users. Created to reduce the
-loneliness in old aged peoples.
-
-![](media/media/image26.png){width="5.485141076115486in"
-height="1.7725131233595801in"}
-
-Patients can access the AI Medical Companion from this button in the app
-
-![](media/media/image27.png){width="2.1050929571303585in"
-height="4.677985564304462in"}
-![](media/media/image28.png){width="2.1053969816272966in"
-height="4.678659230096238in"}
-
-**Scheduling Pill Dispensing from MedMind App to dispense from the
-hardware**
-
-We have used two chambers which can dispense two different sized pills
-for the prototyping of the hardware.
-
-![](media/media/image29.png){width="3.3771325459317585in"
-height="2.1294695975503064in"}
-
-Patient or caregiver can schedule the pill dispensing from the app using
-the patient UI. Add Schedule button is used for scheduling.
-
-![](media/media/image30.png){width="1.945718503937008in"
-height="4.323818897637795in"}
-
-The user can name the medication and toggle/add following options.
-
-![](media/media/image31.png){width="6.5in"
-height="1.9439807524059494in"}
-
-The user can choose from chamber and pills per dose to be dispensed.
-
-![](media/media/image32.png){width="6.5in" height="2.220833333333333in"}
-
-The frequency of dispensing can be also set as daily or specific days
-
-![](media/media/image33.png){width="6.5in"
-height="2.7023140857392827in"}
-
-![](media/media/image34.png){width="4.522965879265092in"
-height="2.701215004374453in"}
-
-Starting date and Ending date can be also added
-
-![](media/media/image35.png){width="3.3771325459317585in"
-height="1.8167716535433072in"}
-
-![](media/media/image36.png){width="2.3019685039370077in"
-height="5.115485564304462in"}
-
-Multiple timings can be set for scheduling.
-
-At the time of dispensing the user mobile phone is prompted with a
-notification to take the medicine. As well as notification via speaker
-and display in the MedMind Hardware also takes place
-
-![](media/media/image37.png){width="2.668799212598425in"
-height="5.930664916885389in"}![](media/media/image38.jpg){width="3.335465879265092in"
-height="3.4915594925634297in"}
-
-If pill is not taken within a time (IR Sensor logic -- will be
-explaining in the hardware part) another notification will be prompted
-to the user as below
-
-![](media/media/image39.png){width="4.05in" height="9.0in"}
-
-![](media/media/image40.png){width="4.043799212598425in"
-height="4.1749693788276465in"}
-
-Active Schedules can be also seen from the UI
-
-**Adherence History with AI Coach**
-
-A logger with AI Coach which will log the adherence data whether pill
-has been taken on time or not. Along with vital data and adherence data
-AI Coach will give suggestions or motivate the user. This adherence data
-can be monitored by the caregiver/doctor remotely and can suggest the
-user on medication via chat or call.
-
-![](media/media/image41.png){width="1.868041338582677in"
-height="4.151201881014873in"}
-![](media/media/image42.png){width="3.211532152230971in"
-height="4.151201881014873in"}
-
-Whole UI Adherence percentage, vitals,
-
-AI Coach
-
-![](media/media/image43.png){width="2.6118219597550305in"
-height="3.2865419947506562in"}\
-Achievements (Medals based on streak) , History
-
-Adherence History can be seen by caregiver/doctor from their UI as well
-using the below option
-
-![](media/media/image17.png){width="3.690698818897638in"
-height="3.362636701662292in"}
-
-**Pill Count Logic and IR Monitoring**
-
-![](media/media/image44.png){width="3.803770778652668in"
-height="3.0113188976377954in"}
-
-It is a feature linked to active dispensing of our MedMind hardware
-part. MedMind hardware consists of two chambers that can dispense two
-types of pill. After every dispensing the IR sensor will be monitoring
-for a particular time ( we have set it as 15 sec for demo to write the
-log whether hand is detected or not -- pill taken or not) then if the
-pill is not taken within the time the app will be notifying the user
-again to take the medicine
-
-![](media/media/image45.jpg){width="4.397965879265092in"
-height="3.298474409448819in"}
-
-![](media/media/image46.jpg){width="2.7821522309711284in"
-height="2.0866141732283463in"}
-![](media/media/image47.jpg){width="3.7521325459317585in"
-height="2.8140988626421697in"}
-
-In prototype we have made hardware to dispense two types of pill sizes.
-The groove will be taking pill from a section where pills are present
-and carry it to the top and drop to a common chamber where pills from
-both chambers meet. We have implemented a custom zigzag motion that
-ensure not two pills are dispensed at a time .
-
-![](media/media/image48.jpg){width="5.070777559055118in"
-height="2.9463320209973753in"}
-
-Thus a user has to update the pill count in each chamber at the starting
-, after every successfull dispensing and if patient has taken the pill
-from the dispensed area then it log as taken and pill count will
-decrease. If the pill count fall behind a certain value then it will
-prompt the user to refill the chamber.
-
-![](media/media/image49.png){width="1.53959864391951in"
-height="3.421330927384077in"}
-
-Notification to user if pill count is below a threshold(in code it is 5)
-
-**Hardware**
-
-Circuit Diagram is as below
-
-![](media/media/image50.jpg){width="6.5in" height="3.733074146981627in"}
-
-**MedMind Pill Dispenser -- Hardware Wiring** 
-=============================================
+## MedMind Pill Dispenser – Hardware Wiring Reference
 
 *(ESP8266 NodeMCU + Servos + IR Sensor + Buzzer + LCD I2C)*
 
-Below is wiring table for every component so you can assemble the
-hardware exactly as my code expects.
+### 1. ESP8266 NodeMCU Pins Used
 
-**1. ESP8266 NodeMCU(Main component --- Pin Reference Used in Code**
-====================================================================
+| Component | NodeMCU Pin | GPIO |
+| --------- | ----------- | ---- |
+| Servo 1   | D5          | 14   |
+| Servo 2   | D6          | 12   |
+| IR Sensor | D7          | 13   |
+| Buzzer    | D8          | 15   |
+| LCD SDA   | D2          | 4    |
+| LCD SCL   | D1          | 5    |
 
-  **Component**   **NodeMCU Pin (Label)**   **GPIO Number**
-  --------------- ------------------------- -----------------
-  Servo 1         **D5**                    GPIO 14
-  Servo 2         **D6**                    GPIO 12
-  IR Sensor       **D7**                    GPIO 13
-  Buzzer          **D8**                    GPIO 15
-  LCD (I2C) SDA   **D2**                    GPIO 4
-  LCD (I2C) SCL   **D1**                    GPIO 5
+### 2. Servo Wiring (Both Servos)
 
-**2. Servo Motor Connections (Servo 1 & Servo 2)**
-==================================================
+| Servo Wire             | Connect To                  |
+| ---------------------- | --------------------------- |
+| Brown/Black (GND)      | NodeMCU GND                 |
+| Red (VCC)              | External 5V                 |
+| Orange/Yellow (Signal) | Servo 1 → D5 / Servo 2 → D6 |
 
-Use:
+⚠ **Important:** NodeMCU GND and external 5V GND must be connected together.
 
--   **Servo 1 → D5**
+### 3. LCD 16×2 I2C
 
--   **Servo 2 → D6**
+| LCD Pin | Connect To |
+| ------- | ---------- |
+| VCC     | 5V         |
+| GND     | GND        |
+| SDA     | D2         |
+| SCL     | D1         |
 
-### **Wiring (same for both servos):**
+### 4. IR Sensor
 
-  **Servo Wire**                 **Connect To**
-  ------------------------------ ------------------------------------
-  **Brown / Black (GND)**        NodeMCU **GND**
-  **Red (VCC)**                  **External 5V Power Supply +5V**
-  **Orange / Yellow (Signal)**   Servo 1 → **D5**, Servo 2 → **D6**
+| IR Sensor Pin | Connect To |
+| ------------- | ---------- |
+| VCC           | 5V         |
+| GND           | GND        |
+| OUT           | D7         |
 
-### **Warning**
+### 5. Speaker/Buzzer via LM386
 
--   **Ground of external 5V** must be connected to **NodeMCU GND**
-    (common ground).
+| LM386 Pin | Connect To |
+| --------- | ---------- |
+| VCC       | 5V         |
+| GND       | GND        |
+| IN/SIG    | D8         |
+| OUT       | Speaker    |
 
-**3. LCD Display (16×2 I2C)**
-=============================
+---
 
-Code uses:
+#Circuit Diagram
 
-###  **Wiring:**
+<img src="media/media/image50.jpg" width="700">
 
-  **LCD Pin**   **Connect To**
-  ------------- ----------------
-  **VCC**       5V
-  **GND**       GND
-  **SDA**       **D2**
-  **SCL**       **D1**
+---
 
-**4. IR Sensor (Obstacle/Break Beam Sensor)**
-=============================================
+#Application Screenshots
 
-Your code reads:
+*(All screenshots below are medium-sized for readability.)*
 
-### **Wiring:**
+---
 
-  **IR Sensor Pin**   **Connect To**
-  ------------------- ----------------
-  **VCC**             5V
-  **GND**             GND
-  **OUT / DO**        **D7**
+## Login & Registration
 
-Your IR sensor likely outputs 3.3--5V logic, and NodeMCU safely reads
-it.
+<img src="media/media/image1.png" width="450">
 
-**5. Speaker Amplifier (LM386)**
-================================
+### Multi-Lingual Screens
 
-Code uses:
+<img src="media/media/image2.png" width="450">
+<img src="media/media/image3.png" width="450">
+<img src="media/media/image4.png" width="450">
 
-### **Wiring:**
+### Register/Login as Patient, Caregiver, or Doctor
 
-  **LM386 Module Pin**   **Connect To**
-  ---------------------- ----------------
-  **VCC**                5V
-  **GND**                GND
-  **IN / SIG**           **D8**
+<img src="media/media/image5.png" width="450">
+<img src="media/media/image6.png" width="450">
+<img src="media/media/image7.png" width="450">
 
--   Output of LM386 → Speaker
+---
 
--   Input of LM386 → D8 (via a small 1µF cap recommended)
+## Patient Interface
 
-**6. ESP8266 WiFi Power Requirements**
-======================================
+<img src="media/media/image8.jpg" width="500">
 
-Minimum stable power:
+---
 
--   NodeMCU: **5V via USB or Vin**
+## Caregiver UI
 
--   Servos: **External 5V 1--2A supply**
+<img src="media/media/image9.jpg" width="500">
 
-**Common Ground is required between:**
+---
 
--   NodeMCU GND
+## Doctor UI
 
--   Servo power supply GND
+<img src="media/media/image24.png" width="600">
 
--   IR Sensor GND
+---
 
--   LCD GND
+## Emergency SOS
 
--   Buzzer GND
+<img src="media/media/image10.png" width="500">
+<img src="media/media/image11.png" width="500">
+<img src="media/media/image12.jpg" width="600">
+
+---
+
+## Smartwatch Vitals Linking
+
+<img src="media/media/image13.png" width="450">
+<img src="media/media/image14.png" width="450">
+<img src="media/media/image15.png" width="450">
+<img src="media/media/image16.png" width="500">
+<img src="media/media/image17.png" width="600">
+<img src="media/media/image18.jpg" width="500">
+
+---
+
+## MedMind Ecosystem
+
+<img src="media/media/image19.png" width="400">
+
+### Linking Caregivers/Doctors
+
+<img src="media/media/image20.png" width="450">
+
+### Patient Linking from Caregiver Side
+
+<img src="media/media/image21.png" width="450">
+
+### Chat & Call Features
+
+<img src="media/media/image22.png" width="450">
+<img src="media/media/image23.jpg" width="500">
+
+---
+
+## AI Medical Companion
+
+<img src="media/media/image26.png" width="600">
+<img src="media/media/image27.png" width="450">
+<img src="media/media/image28.png" width="450">
+
+---
+
+## Scheduling Pills
+
+<img src="media/media/image29.png" width="450">
+
+<img src="media/media/image30.png" width="450">
+<img src="media/media/image31.png" width="600">
+
+<img src="media/media/image32.png" width="600">
+<img src="media/media/image33.png" width="600">
+<img src="media/media/image34.png" width="450">
+
+<img src="media/media/image35.png" width="450">
+<img src="media/media/image36.png" width="450">
+
+### Notification Examples
+
+<img src="media/media/image37.png" width="450">
+<img src="media/media/image38.jpg" width="450">
+
+---
+
+## Missed Dose Detection
+
+<img src="media/media/image39.png" width="600">
+<img src="media/media/image40.png" width="600">
+
+---
+
+## Adherence History & AI Coach
+
+<img src="media/media/image41.png" width="400">
+<img src="media/media/image42.png" width="500">
+<img src="media/media/image43.png" width="450">
+
+### Caregiver View
+
+<img src="media/media/image17.png" width="500">
+
+---
+
+## Pill Count Logic & Hardware
+
+<img src="media/media/image44.png" width="500">
+<img src="media/media/image45.jpg" width="500">
+<img src="media/media/image46.jpg" width="500">
+<img src="media/media/image47.jpg" width="500">
+<img src="media/media/image48.jpg" width="600">
+<img src="media/media/image49.png" width="350">
+
+---
+
+# Team
+
+* **Sreekanth S K** – Team Lead
+* **Pranav J P**
+*  **Sandra P S** 
+* **Sooraj Subhash** 
+
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License.
+
