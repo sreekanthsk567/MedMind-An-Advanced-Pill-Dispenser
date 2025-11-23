@@ -1,12 +1,16 @@
+**MEDMIND**
+
+**An Advanced Pill Dispenser**
+
 **MedMind Login Screen**
 
-![](media/media/image1.png){width="1.556324365704287in"
-height="3.458499562554681in"}
+![](media/media/image1.png){width="1.3249070428696412in"
+height="2.9442377515310585in"}
 
 Multi-Lingual Option
 
-![](media/media/image2.png){width="1.6334372265966755in"
-height="3.629861111111111in"}
+![](media/media/image2.png){width="1.627308617672791in"
+height="3.6162423447069116in"}
 ![](media/media/image3.png){width="1.6334372265966755in"
 height="3.629861111111111in"}
 ![](media/media/image4.png){width="1.6622342519685038in"
@@ -22,7 +26,7 @@ height="4.483814523184602in"}
 ![](media/media/image7.png){width="2.022965879265092in"
 height="4.495479002624672in"}
 
-Patient UI with Mulitple Languages
+Patient UI with Multiple Languages
 
 ![](media/media/image8.jpg){width="3.710465879265092in"
 height="2.319040901137358in"}
@@ -36,28 +40,29 @@ Doctor UI with multiple patients( Existing account)
 
 **Emergency SOS feature**
 
-![](media/media/image10.png){width="5.710465879265092in"
-height="2.532696850393701in"}
+![](media/media/image10.png){width="3.991715879265092in"
+height="1.7704002624671915in"}
 
 In case of emergency, patient can press this button
 
-![](media/media/image11.png){width="5.835465879265092in"
-height="2.4638626421697287in"}
+![](media/media/image11.png){width="4.345882545931759in"
+height="1.8349278215223097in"}
 
-![](media/media/image12.jpg){width="6.5in" height="4.0625in"}
+![](media/media/image12.jpg){width="6.075721784776903in"
+height="3.797326115485564in"}
 
 In caregiver/doctor phone it will play an emergency alarm( sound and
 visual alert as seen from the screenshot)
 
 **Linking to Smart Watch for Vitals Monitoring for doctor/caregiver**
 
-![](media/media/image13.png){width="4.4256069553805775in"
-height="2.3234437882764656in"}
+![](media/media/image13.png){width="3.2955008748906387in"
+height="1.7301377952755905in"}
 
-![](media/media/image14.png){width="2.639468503937008in"
-height="5.865485564304462in"}
-![](media/media/image15.png){width="2.60625in"
-height="5.791666666666667in"}
+![](media/media/image14.png){width="2.369734251968504in"
+height="5.266076115485564in"}
+![](media/media/image15.png){width="2.444734251968504in"
+height="5.432742782152231in"}
 
 Allow the permissions
 
@@ -70,8 +75,8 @@ below
 ![](media/media/image17.png){width="3.690698818897638in"
 height="3.362636701662292in"}
 
-![](media/media/image18.jpg){width="4.647965879265092in"
-height="6.4117257217847765in"}
+![](media/media/image18.jpg){width="3.5003149606299213in"
+height="4.828576115485564in"}
 
 **MedMind Ecosystem**
 
@@ -122,7 +127,8 @@ to medical activities ( no medicinal advises are allowed to give as
 answer). The AI acts as a companion to users. Created to reduce the
 loneliness in old aged peoples.
 
-![](media/media/image26.png){width="6.5in" height="2.100462598425197in"}
+![](media/media/image26.png){width="5.485141076115486in"
+height="1.7725131233595801in"}
 
 Patients can access the AI Medical Companion from this button in the app
 
@@ -244,14 +250,134 @@ In prototype we have made hardware to dispense two types of pill sizes.
 The groove will be taking pill from a section where pills are present
 and carry it to the top and drop to a common chamber where pills from
 both chambers meet. We have implemented a custom zigzag motion that
-ensure not two pills are dispensed at a time . Thus a user has to update
-the pill count in each chamber at the starting , after every successfull
-dispensing and if patient has taken the pill from the dispensed area
-then it log as taken and pill count will decrease. If the pill count
-fall behind a certain value then it will prompt the user to refill the
-chamber.
+ensure not two pills are dispensed at a time .
 
-![](media/media/image48.png){width="1.9937314085739282in"
-height="4.430515091863517in"}
+![](media/media/image48.jpg){width="5.070777559055118in"
+height="2.9463320209973753in"}
 
-Notification to user if pill has been taken successfully
+Thus a user has to update the pill count in each chamber at the starting
+, after every successfull dispensing and if patient has taken the pill
+from the dispensed area then it log as taken and pill count will
+decrease. If the pill count fall behind a certain value then it will
+prompt the user to refill the chamber.
+
+![](media/media/image49.png){width="1.53959864391951in"
+height="3.421330927384077in"}
+
+Notification to user if pill count is below a threshold(in code it is 5)
+
+**Hardware**
+
+Circuit Diagram is as below
+
+![](media/media/image50.jpg){width="6.5in" height="3.733074146981627in"}
+
+**MedMind Pill Dispenser -- Hardware Wiring** 
+=============================================
+
+*(ESP8266 NodeMCU + Servos + IR Sensor + Buzzer + LCD I2C)*
+
+Below is wiring table for every component so you can assemble the
+hardware exactly as my code expects.
+
+**1. ESP8266 NodeMCU(Main component --- Pin Reference Used in Code**
+====================================================================
+
+  **Component**   **NodeMCU Pin (Label)**   **GPIO Number**
+  --------------- ------------------------- -----------------
+  Servo 1         **D5**                    GPIO 14
+  Servo 2         **D6**                    GPIO 12
+  IR Sensor       **D7**                    GPIO 13
+  Buzzer          **D8**                    GPIO 15
+  LCD (I2C) SDA   **D2**                    GPIO 4
+  LCD (I2C) SCL   **D1**                    GPIO 5
+
+**2. Servo Motor Connections (Servo 1 & Servo 2)**
+==================================================
+
+Use:
+
+-   **Servo 1 → D5**
+
+-   **Servo 2 → D6**
+
+### **Wiring (same for both servos):**
+
+  **Servo Wire**                 **Connect To**
+  ------------------------------ ------------------------------------
+  **Brown / Black (GND)**        NodeMCU **GND**
+  **Red (VCC)**                  **External 5V Power Supply +5V**
+  **Orange / Yellow (Signal)**   Servo 1 → **D5**, Servo 2 → **D6**
+
+### **Warning**
+
+-   **Ground of external 5V** must be connected to **NodeMCU GND**
+    (common ground).
+
+**3. LCD Display (16×2 I2C)**
+=============================
+
+Code uses:
+
+###  **Wiring:**
+
+  **LCD Pin**   **Connect To**
+  ------------- ----------------
+  **VCC**       5V
+  **GND**       GND
+  **SDA**       **D2**
+  **SCL**       **D1**
+
+**4. IR Sensor (Obstacle/Break Beam Sensor)**
+=============================================
+
+Your code reads:
+
+### **Wiring:**
+
+  **IR Sensor Pin**   **Connect To**
+  ------------------- ----------------
+  **VCC**             5V
+  **GND**             GND
+  **OUT / DO**        **D7**
+
+Your IR sensor likely outputs 3.3--5V logic, and NodeMCU safely reads
+it.
+
+**5. Speaker Amplifier (LM386)**
+================================
+
+Code uses:
+
+### **Wiring:**
+
+  **LM386 Module Pin**   **Connect To**
+  ---------------------- ----------------
+  **VCC**                5V
+  **GND**                GND
+  **IN / SIG**           **D8**
+
+-   Output of LM386 → Speaker
+
+-   Input of LM386 → D8 (via a small 1µF cap recommended)
+
+**6. ESP8266 WiFi Power Requirements**
+======================================
+
+Minimum stable power:
+
+-   NodeMCU: **5V via USB or Vin**
+
+-   Servos: **External 5V 1--2A supply**
+
+**Common Ground is required between:**
+
+-   NodeMCU GND
+
+-   Servo power supply GND
+
+-   IR Sensor GND
+
+-   LCD GND
+
+-   Buzzer GND
