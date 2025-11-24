@@ -195,8 +195,8 @@ MedMind supports multi-languages as well. Here is a sneak peak of how every lang
 
 ## Patient Interface
 
-<img src="media/media/imagea.jpg" width="500">
-<img src="media/media/imageb.jpg" width="500">
+<img src="media/media/imagea.png" width="500">
+<img src="media/media/imageb.png" width="500">
 
 ---
 
@@ -234,9 +234,9 @@ Patients can link the smartwatch/smart health devices(since we are using health 
 <img src="media/media/image13.png" width="450">
 <img src="media/media/image14.png" width="450">
 <img src="media/media/image15.png" width="450">
-<img src="media/media/image16.png" width="500">
+
 <img src="media/media/imagex.png" width="600">
-<img src="media/media/imagey.png" width="600">
+<img src="media/media/imagey.jpg" width="600">
 
 <img src="media/media/image18.jpg" width="500">
 
