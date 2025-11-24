@@ -90,11 +90,11 @@ Make sure you have:
 4. Update credentials at the top of the code:
 
 ```cpp
-#define WIFI_SSID "YOUR_WIFI"
-#define WIFI_PASSWORD "YOUR_PASSWORD"
-#define FIREBASE_DB_URL "YOUR_RTDB_URL"
-#define FIREBASE_DB_SECRET "YOUR_DATABASE_SECRET"
-#define PATIENT_USER_ID "UID_FROM_APP"
+#define WIFI_SSID "wifi name here"
+#define WIFI_PASSWORD "wifi password here"
+#define FIREBASE_DB_URL "rtdb url"
+#define FIREBASE_DB_SECRET "rtdb code"
+#define PATIENT_USER_ID "user id from app"
 ```
 
 5.  Upload the code to the NodeMCU.
