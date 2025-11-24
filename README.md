@@ -2,7 +2,18 @@
 ---
 <img src="media/media/image51.jpg" width="220">
 
-MedMind is an IoT-enabled medication management system designed to help elderly patients take their medicines on time while keeping caregivers and doctors in the loop. It combines a smart pill-dispensing hardware unit with an Android application that provides reminders, AI-powered coaching, vitals monitoring, and real-time alerts.
+MedMind is an IoT-enabled medication management ecosystem designed to help elderly patients take their medicines on time while keeping caregivers and doctors in the loop (Remote monitoring). It combines a smart pill-dispensing hardware unit with an Android application that provides reminders, AI-powered coaching, vitals monitoring, and real-time alerts to caregiver/doctor/patient.
+
+## A Quick Feature Overview
+1.Multi-Lingual UI
+2.Smart Vital Device integration (that support Health Connect)
+3.Emergency SOS
+4.Active Dispensing scheduling from phone
+5.AI adherence Companion
+6.AI Medical Companion
+7.Ecosystem between patient/caregiver/doctor
+8.Chat and Call Features 
+9.Hardware pill retreival monitoring, audio and visual alert
 
 ---
 ## The Problem
@@ -92,15 +103,15 @@ git clone https://github.com/YOUR_USERNAME/MedMind.git
 ```
 
 2. Open the `android-app/` folder in Android Studio.
-3. Add your Firebase `google-services.json` to:
+3. Create a new project in firebase and add the package name. Add the SHA credential and register the app. Register the app in play integrity and download the google-services.json. Add your Firebase `google-services.json` to:
 
 ```
 android-app/app/
 ```
 
 4. Add your Gemini API Key inside `AiCompanionActivity.kt`.
-5. Build and run on a physical device (Health Connect doesn’t work on standard emulators).
-
+5. Build the app and run on a physical device (Health Connect doesn’t work on standard emulators).
+WARNING: The app won't build if google-services.json not provided.
 ---
 
 # Hardware Wiring
@@ -158,13 +169,13 @@ android-app/app/
 
 ---
 
-#Circuit Diagram
+# Circuit Diagram
 
 <img src="media/media/image50.jpg" width="700">
 
 ---
 
-#Application Screenshots
+# Application Screenshots
 
 
 
@@ -175,7 +186,9 @@ android-app/app/
 MedMind ecosystem allows to login as patient/caregiver/doctor providing intelink between these users seamlessly for remote monitoring in the case of doctor or a caregiver.
 
 <img src="media/media/image1.png" width="450">
+
 New Registration window
+
 <img src="media/media/image2.png" width="450">
 <img src="media/media/image3.png" width="450">
 <img src="media/media/image4.png" width="450">
@@ -327,7 +340,8 @@ AI coach motivates and give suggestions based on the adherence history and vital
 
 ### Caregiver/doctor View
 
-Caregiver/ doctor can access this adherence history of patient from their ui
+Caregiver/ doctor can access this adherence history of patient from their UI
+
 <img src="media/media/image17.png" width="500">
 
 ---
@@ -337,6 +351,7 @@ Caregiver/ doctor can access this adherence history of patient from their ui
 The pill count updated will be reducing automatically after every successfull intake of pills from the tray of hardware. If the pill count falls below 5 then the user is notified to refill the chamber.
 
 MedMind side view
+
 <img src="media/media/image44.png" width="500">
 
 Pill Dispensing Mechanism
