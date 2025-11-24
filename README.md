@@ -19,7 +19,7 @@ MedMind is an IoT-enabled medication management ecosystem designed to help elder
 ---
 ## The Problem
 ---
-Medication non-adherence is one of the biggest hidden challenges in elderly care. Many older adults forget doses, double-dose by accident, or skip medicines entirely. Family members living away often have no way to track if their loved ones are following their medication schedule. Most existing solutions like pill boxes or alarms are passive—they cannot verify whether a pill was actually taken.
+Medication non-adherence is one of the biggest hidden challenges in elderly care. Many older adults forget doses, double-dose by accident, or skip medicines entirely. Family members living away often have no way to track if their loved ones are following their medication schedule. Most existing solutions like pill boxes or alarms are passive—they cannot verify whether a pill was actually taken. Studies show that nearly 50% of older adults do not take their long-term medications as prescribed, and non-adherence contributes to up to 10–20% of hospitalizations among the elderly. In India and many other countries, adherence rates in chronic diseases often fall below 40%, making real-time verification and monitoring more important than ever.
 ---
 ## The MedMind Solution
 ---
