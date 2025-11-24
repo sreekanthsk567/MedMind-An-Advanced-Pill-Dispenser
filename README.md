@@ -5,15 +5,16 @@
 MedMind is an IoT-enabled medication management ecosystem designed to help elderly patients take their medicines on time while keeping caregivers and doctors in the loop (Remote monitoring). It combines a smart pill-dispensing hardware unit with an Android application that provides reminders, AI-powered coaching, vitals monitoring, and real-time alerts to caregiver/doctor/patient.
 
 ## A Quick Feature Overview
-1.Multi-Lingual UI
-2.Smart Vital Device integration (that support Health Connect)
-3.Emergency SOS
-4.Active Dispensing scheduling from phone
-5.AI adherence Companion
-6.AI Medical Companion
-7.Ecosystem between patient/caregiver/doctor
-8.Chat and Call Features 
-9.Hardware pill retreival monitoring, audio and visual alert
+
+- **Multi-Lingual UI**
+- **Smart Vital Device Integration** (supports Google Health Connect)
+- **Emergency SOS Alerts**
+- **Active Pill Dispensing Scheduling** directly from the phone
+- **AI Adherence Companion**
+- **AI Medical Companion**
+- **Integrated Ecosystem** between Patient, Caregiver, and Doctor
+- **In-App Chat and Call Features**
+- **Hardware-Level Pill Retrieval Monitoring** with audio & visual alerts
 
 ---
 ## The Problem
